@@ -20,7 +20,7 @@
       "label": "Label to add to file",
       "class": "string",
       "optional": true,
-      "default": "trimmed",
+      "default": "split",
       "help": "Label to insert into filename prior to .vcf.gz"
     },
     {
