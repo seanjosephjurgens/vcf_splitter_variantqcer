@@ -1,4 +1,4 @@
-# VCF Trimmer for UK Biobank RAP
+# VCF Splitter and VariantQCer for UK Biobank RAP DRAGEN data
 #### Developed by Andrew Wood. University of Exeter
 #### Re-purposed by Sean Jurgens. Broad Institute / Amsterdam UMC
 
@@ -11,7 +11,7 @@ This applet performs parallel processing of VCFs through [bcftools](https://samt
 ### Obtaining and installing the applet
 Clone this github repo to a local directory:
 ```
-git clone https://github.com/seanjosephjurgens/vcf_trimmer
+git clone https://github.com/seanjosephjurgens/vcf_splitter_variantqcer
 ```
 Navigate to a relevant directory within the project directory on the DNAnexus platform
 ```
@@ -19,7 +19,7 @@ dx cd /path/to/install/apps
 ```
 Now you are ready to build and upload the applet to the DNAnexus platform directory
 ```
-dx build -f vcf_trimmer
+dx build -f vcf_splitter_variantqcer
 ```
 ---
 ### Inputs
@@ -47,7 +47,7 @@ As opposed to the original version, this one is made for analyzing the DRAGEN 50
 #### Example 1:
 Removing all fields within `FORMAT` except for `GT` (which is needed for genotypes information):
 ```
-dx run vcf_trimmer \
+dx run vcf_splitter_variantqcer \
   -ivcf_file_list=/path/to/vcf_file_list.txt \
   -ifile_label=trimmed3 \
   -ioutput_dir=/path/to/output/dir \
@@ -60,7 +60,7 @@ dx run vcf_trimmer \
 Removing all fields within `FORMAT` (except for `GT`) and removing all from `INFO`, except for `ExcHet` which must remain as as inclusion critera of an `ExcHet` > 1e-7:
 (please not that ExcHet is different for DRAGEN output than regular GATK output!!!)
 ```
-dx run vcf_trimmer \
+dx run vcf_splitter_variantqcer \
   -ivcf_file_list=/path/to/vcf_file_list.txt \
   -ifile_label=trimmed2 \
   -ioutput_dir=/path/to/output/dir \
